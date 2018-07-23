@@ -1,3 +1,4 @@
 # google-timeline-vis
 
-Data from google timeline as Json. Load to MongoDB and visualize in Rshiny.
+Data from google timeline as Json. 
+Load to MongoDB and visualize in Rshiny.

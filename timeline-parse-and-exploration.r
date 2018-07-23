@@ -3,11 +3,21 @@
 # date : 21-07-2018
 
 # load packages
-# load packages
+# if (packageVersion("devtools") < 1.6) {
+  # install.packages("devtools")
+# }
+# devtools::install_github("hadley/lazyeval")
+# devtools::install_github("hadley/dplyr")
+install.packages('dplyr')
 library(dplyr)
 library(jsonlite)
 library(rJava)
 library(RMongo)
+library(rmarkdown)
+install.packages('rmarkdown')
+if (!require("devtools"))
+  install.packages("devtools")
+devtools::install_github("shiny", "rstudio")
 
 ####
 # Set the start and end times to query between.
@@ -23,5 +33,3 @@ collection <- 'full'
 # Query data to retreive between two dates.
 x <- dbGetQuery(mongo, collection, sprintf('{"$and": [ {"timestampMs" : {"$gte" : "%s"}}, 
                                                        {"timestampMs" : {"$lte" : "%s"}}]}', startts, endts), skip = 0, limit = Inf)
-
-
